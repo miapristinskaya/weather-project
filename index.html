@@ -21,6 +21,23 @@
   <body>
     <div class="container">
       <div class="row">
+        <div class="col-5">
+          <button>My location</button>
+          <p>or</p>
+          <form id="choose-city-form">
+            <input
+              type="text"
+              placeholder="or another city"
+              id="choose-city-input"
+            />
+            <input type="submit" value="Enter" />
+          </form>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-1">
+          <img src="img/sun.png" class="weather-image-main" alt="" />
+        </div>
+        <div class="col-1"></div>
         <div class="col-4 current-city">
           <p id="current-date"></p>
           <p id="current-city"></p>
@@ -28,20 +45,6 @@
             <span id="current-temperature"></span>
             <!--<sup> <a href="#">°C</a> | <a href="#">°F</a> </sup>-->
           </p>
-        </div>
-        <div class="col-2">
-          <img src="img/sun.png" class="weather-image-main" alt="" />
-        </div>
-        <div class="col-6">
-          <button>My location</button>
-          <form id="choose-city-form">
-            <input
-              type="text"
-              placeholder="or enter a city"
-              id="choose-city-input"
-            />
-            <input type="submit" value="Enter" />
-          </form>
         </div>
       </div>
       <div class="row">
@@ -120,7 +123,15 @@
       </div>
     </div>
     <br />
-    <h6><a href=""> open-source code</a> by Mariia Prystinska</h6>
+    <h6>
+      <a
+        href="https://github.com/miapristinskaya/weather-project"
+        target="_blank"
+      >
+        open-source code</a
+      >
+      by Mariia Prystinska
+    </h6>
     <script src="src/index.js"></script>
   </body>
 </html>
