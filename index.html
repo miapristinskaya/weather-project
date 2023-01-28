@@ -29,35 +29,34 @@
               type="text"
               placeholder="or another city"
               id="choose-city-input"
+              autocomplete="off"
             />
             <input type="submit" value="Enter" />
           </form>
         </div>
-        <div class="col-1"></div>
-        <div class="col-1">
-          <img src="img/sun.png" class="weather-image-main" alt="" />
+        <div class="col-2">
+          <img src="img/sun.png" id="current-icon" alt="" />
         </div>
-        <div class="col-1"></div>
-        <div class="col-4 current-city">
-          <p id="current-date"></p>
+        <div class="col-5 current-city-weather">
           <p id="current-city"></p>
           <p>
             <span id="current-temperature"></span>
-            <!--<sup> <a href="#">°C</a> | <a href="#">°F</a> </sup>-->
+            <sup> <a href="#">°C</a> | <a href="#">°F</a> </sup>
           </p>
+          <p id="current-description">clear sky</p>
+
+          <p>Humidity: <span id="current-humidity"> </span> %</p>
+          <p>Wind: <span id="current-wind"> </span> m/s</p>
+          <p>Last updated: <span id="current-date"> </span></p>
         </div>
       </div>
       <div class="row">
         <div class="card-group">
           <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Today</h5>
+              <p class="card-title">Today</p>
             </div>
-            <img
-              src="img/sun.png"
-              class="card-img-top weather-image"
-              alt="..."
-            />
+            <img src="img/sun.png" class="card-img-top" alt="..." />
             <ul class="list-group list-group-flush">
               <li class="list-group-item">-3°C</li>
               <li class="list-group-item">-6°C</li>
@@ -65,13 +64,9 @@
           </div>
           <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Tomorrow</h5>
+              <p class="card-title">Tomorrow</p>
             </div>
-            <img
-              src="img/cloud.png"
-              class="card-img-top weather-image"
-              alt="..."
-            />
+            <img src="img/cloud.png" class="card-img-top" alt="..." />
             <ul class="list-group list-group-flush">
               <li class="list-group-item">-2°C</li>
               <li class="list-group-item">-4°C</li>
@@ -79,13 +74,9 @@
           </div>
           <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Wednesday</h5>
+              <p class="card-title">Wednesday</p>
             </div>
-            <img
-              src="img/snow2.png"
-              class="card-img-top weather-image"
-              alt="..."
-            />
+            <img src="img/snow2.png" class="card-img-top" alt="..." />
             <ul class="list-group list-group-flush">
               <li class="list-group-item">-1°C</li>
               <li class="list-group-item">-2°C</li>
@@ -93,13 +84,9 @@
           </div>
           <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Thursday</h5>
+              <p class="card-title">Thursday</p>
             </div>
-            <img
-              src="img/snowrain.png"
-              class="card-img-top weather-image"
-              alt="..."
-            />
+            <img src="img/snowrain.png" class="card-img-top" alt="..." />
             <ul class="list-group list-group-flush">
               <li class="list-group-item">+1°C</li>
               <li class="list-group-item">0°C</li>
@@ -107,13 +94,9 @@
           </div>
           <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Friday</h5>
+              <p class="card-title">Friday</p>
             </div>
-            <img
-              src="img/cloudsun.png"
-              class="card-img-top weather-image"
-              alt="..."
-            />
+            <img src="img/cloudsun.png" class="card-img-top" alt="..." />
             <ul class="list-group list-group-flush">
               <li class="list-group-item">-1°C</li>
               <li class="list-group-item">-4°C</li>
