@@ -1,4 +1,4 @@
-//showing current date
+//Showing date and time
 let now = new Date();
 let weekDay = now.getDay();
 let weekDays = [
@@ -21,48 +21,48 @@ if (minutes < 10) {
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${weekDays[weekDay]} ${hours}:${minutes}`;
 
-//reaction to changing city
-function showCurrentTemperature(response) {
-  console.log(response);
+//Showing current weather
+function showCurrentWeather(response) {
+  console.log(response.data);
   let temperature = response.data.main.temp;
-  console.log(temperature);
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = `${Math.round(temperature)}`;
+  let humidity = response.data.main.humidity;
+  let currentHumidity = document.querySelector("#current-humidity");
+  currentHumidity.innerHTML = `${Math.round(humidity)}`;
+  let description = response.data.weather[0].description;
+  currentDescription = document.querySelector("#current-description");
+  currentDescription.innerHTML = `${description}`;
+  let wind = response.data.wind.speed;
+  let currentWind = document.querySelector("#current-wind");
+  currentWind.innerHTML = `${Math.round(wind)}`;
+
   let anotherCity = document.querySelector("#choose-city-input");
   let cityFormatted = anotherCity.value.toString().trim().toLowerCase();
   let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = `${cityFormatted}`;
+  currentCity.innerHTML = `${response.data.name}`;
 }
 
-//changing city
+//If to fill "Another city" form
 function chooseAnotherCity(event) {
   event.preventDefault();
   let anotherCity = document.querySelector("#choose-city-input");
   let cityFormatted = anotherCity.value.toString().trim().toLowerCase();
-  console.log(cityFormatted);
   let apiKey = "6e6ec494746b5229a9f2d526478c924c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityFormatted}&appid=${apiKey}&&units=metric`;
-  axios.get(apiUrl).then(showCurrentTemperature);
+  axios.get(apiUrl).then(showCurrentWeather);
 }
 
 let chooseCityForm = document.querySelector("#choose-city-form");
 chooseCityForm.addEventListener("submit", chooseAnotherCity);
 
 //if to click "My Location" button
-function showMyLocationTemperature(response) {
-  let temperature = response.data.main.temp;
-  let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = `${Math.round(temperature)}`;
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = `${response.data.name}`;
-}
-
 function getMyLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "6e6ec494746b5229a9f2d526478c924c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showMyLocationTemperature);
+  axios.get(apiUrl).then(showCurrentWeather);
 }
 
 function myLocationFunction() {
