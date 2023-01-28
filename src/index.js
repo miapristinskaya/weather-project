@@ -11,7 +11,13 @@ let weekDays = [
   "Saturday",
 ];
 let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${weekDays[weekDay]} ${hours}:${minutes}`;
 
@@ -21,7 +27,7 @@ function showCurrentTemperature(response) {
   let temperature = response.data.main.temp;
   console.log(temperature);
   let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = `${Math.round(temperature)} °C`;
+  currentTemperature.innerHTML = `${Math.round(temperature)}`;
   let anotherCity = document.querySelector("#choose-city-input");
   let cityFormatted = anotherCity.value.toString().trim().toLowerCase();
   let currentCity = document.querySelector("#current-city");
@@ -45,9 +51,8 @@ chooseCityForm.addEventListener("submit", chooseAnotherCity);
 //if to click "My Location" button
 function showMyLocationTemperature(response) {
   let temperature = response.data.main.temp;
-  console.log(temperature);
   let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = `${Math.round(temperature)} °C`;
+  currentTemperature.innerHTML = `${Math.round(temperature)}`;
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = `${response.data.name}`;
 }
@@ -55,11 +60,8 @@ function showMyLocationTemperature(response) {
 function getMyLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  console.log(latitude);
-  console.log(longitude);
   let apiKey = "6e6ec494746b5229a9f2d526478c924c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showMyLocationTemperature);
 }
 
