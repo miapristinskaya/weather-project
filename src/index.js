@@ -21,6 +21,13 @@ if (minutes < 10) {
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${weekDays[weekDay]} ${hours}:${minutes}`;
 
+//Start city is Kyiv
+axios
+  .get(
+    "https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=6e6ec494746b5229a9f2d526478c924c&&units=metric"
+  )
+  .then(showCurrentWeather);
+
 //Showing current weather
 function showCurrentWeather(response) {
   console.log(response.data);
@@ -46,7 +53,6 @@ function showCurrentWeather(response) {
   document.querySelector("#current-icon").alt = description;
 
   let city = response.data.name;
-  console.log(city);
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = `${city}`;
 }
