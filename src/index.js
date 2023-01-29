@@ -21,10 +21,12 @@ if (minutes < 10) {
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${weekDays[weekDay]} ${hours}:${minutes}`;
 
+let apiKey = "6e6ec494746b5229a9f2d526478c924c";
+
 //Start city is Kyiv
 axios
   .get(
-    "https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=6e6ec494746b5229a9f2d526478c924c&&units=metric"
+    `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${apiKey}&&units=metric`
   )
   .then(showCurrentWeather);
 
@@ -32,7 +34,7 @@ axios
 function showCurrentWeather(response) {
   console.log(response.data);
 
-  let temperature = response.data.main.temp;
+  temperature = response.data.main.temp;
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = `${Math.round(temperature)}`;
 
@@ -55,6 +57,10 @@ function showCurrentWeather(response) {
   let city = response.data.name;
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = `${city}`;
+
+  let country = response.data.sys.country;
+  let currentCountry = document.querySelector("#current-country");
+  currentCountry.innerHTML = `${country}`;
 }
 
 //If to fill "Another city" form
@@ -62,7 +68,6 @@ function chooseAnotherCity(event) {
   event.preventDefault();
   let anotherCity = document.querySelector("#choose-city-input");
   let cityFormatted = anotherCity.value.toString().trim().toLowerCase();
-  let apiKey = "6e6ec494746b5229a9f2d526478c924c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityFormatted}&appid=${apiKey}&&units=metric`;
   axios.get(apiUrl).then(showCurrentWeather);
 }
@@ -74,7 +79,6 @@ chooseCityForm.addEventListener("submit", chooseAnotherCity);
 function getMyLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiKey = "6e6ec494746b5229a9f2d526478c924c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentWeather);
 }
@@ -85,3 +89,27 @@ function myLocationFunction() {
 
 let buttonMyLocation = document.querySelector("button");
 buttonMyLocation.addEventListener("click", myLocationFunction);
+
+let temperature = null;
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("current-unit");
+  fahrenheitLink.classList.add("current-unit");
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = Math.round(temperature * 1.8 + 32);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("current-unit");
+  fahrenheitLink.classList.remove("current-unit");
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = Math.round(temperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToCelsius);

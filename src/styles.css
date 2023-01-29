@@ -59,3 +59,12 @@ button {
   margin: 20px auto;
   border: 1px solid grey;
 }
+
+.current-unit {
+  color: #1b5e7a;
+  cursor: default;
+}
+
+.current-unit:hover {
+  text-decoration: none;
+}
