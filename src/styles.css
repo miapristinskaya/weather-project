@@ -68,3 +68,7 @@ button {
 .current-unit:hover {
   text-decoration: none;
 }
+
+a {
+  color: grey;
+}
