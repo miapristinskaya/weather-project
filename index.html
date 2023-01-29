@@ -38,10 +38,16 @@
           <img src="" id="current-icon" alt="" />
         </div>
         <div class="col-5 current-city-weather">
-          <p id="current-city"></p>
+          <p>
+            <span id="current-city"> </span>,
+            <span id="current-country"> </span>
+          </p>
           <p>
             <span id="current-temperature"></span>
-            <sup> <a href="#">°C</a> | <a href="#">°F</a> </sup>
+            <sup>
+              <a href="#" id="celsius" class="current-unit">°C</a> |
+              <a href="#" id="fahrenheit">°F</a>
+            </sup>
           </p>
           <p id="current-description">clear sky</p>
           <p>Humidity: <span id="current-humidity"> </span> %</p>
@@ -49,6 +55,7 @@
           <p>Last updated: <span id="current-date"> </span></p>
         </div>
       </div>
+      <!--
       <div class="row">
         <div class="card-group">
           <div class="card" style="width: 18rem">
@@ -103,7 +110,7 @@
           </div>
         </div>
       </div>
-    </div>
+    --></div>
     <br />
     <h6>
       <a
