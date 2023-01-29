@@ -42,12 +42,13 @@ function showCurrentWeather(response) {
   currentWind.innerHTML = `${Math.round(wind)}`;
 
   let icon = response.data.weather[0].icon;
-  console.log(icon);
-  document.querySelector(
-    "#current-icon"
-  ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  document.querySelector("#current-icon").src = `img/${icon}.png`;
+  document.querySelector("#current-icon").alt = description;
 
-  currentCity.innerHTML = `${response.data.name}`;
+  let city = response.data.name;
+  console.log(city);
+  let currentCity = document.querySelector("#current-city");
+  currentCity.innerHTML = `${city}`;
 }
 
 //If to fill "Another city" form
