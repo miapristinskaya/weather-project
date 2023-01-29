@@ -24,22 +24,29 @@ currentDate.innerHTML = `${weekDays[weekDay]} ${hours}:${minutes}`;
 //Showing current weather
 function showCurrentWeather(response) {
   console.log(response.data);
+
   let temperature = response.data.main.temp;
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = `${Math.round(temperature)}`;
+
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#current-humidity");
   currentHumidity.innerHTML = `${Math.round(humidity)}`;
+
   let description = response.data.weather[0].description;
   currentDescription = document.querySelector("#current-description");
   currentDescription.innerHTML = `${description}`;
+
   let wind = response.data.wind.speed;
   let currentWind = document.querySelector("#current-wind");
   currentWind.innerHTML = `${Math.round(wind)}`;
 
-  let anotherCity = document.querySelector("#choose-city-input");
-  let cityFormatted = anotherCity.value.toString().trim().toLowerCase();
-  let currentCity = document.querySelector("#current-city");
+  let icon = response.data.weather[0].icon;
+  console.log(icon);
+  document.querySelector(
+    "#current-icon"
+  ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
   currentCity.innerHTML = `${response.data.name}`;
 }
 
