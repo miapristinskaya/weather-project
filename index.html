@@ -43,11 +43,12 @@
             <span id="current-country"> </span>
           </p>
           <p>
-            <span id="current-temperature"></span>
-            <sup>
+            <span id="current-temperature"></span>°C
+            <sup> like <span id="current-temperature-like"></span>°C</sup>
+            <!--<sup>
               <a href="#" id="celsius" class="current-unit">°C</a> |
               <a href="#" id="fahrenheit">°F</a>
-            </sup>
+            </sup>-->
           </p>
           <p id="current-description">clear sky</p>
           <p>Humidity: <span id="current-humidity"> </span> %</p>
@@ -55,62 +56,9 @@
           <p>Last updated: <span id="current-date"> </span></p>
         </div>
       </div>
-      <!--
-      <div class="row">
-        <div class="card-group">
-          <div class="card" style="width: 18rem">
-            <div class="card-body">
-              <p class="card-title">Today</p>
-            </div>
-            <img src="img/sun.png" class="card-img-top" alt="..." />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">-3°C</li>
-              <li class="list-group-item">-6°C</li>
-            </ul>
-          </div>
-          <div class="card" style="width: 18rem">
-            <div class="card-body">
-              <p class="card-title">Tomorrow</p>
-            </div>
-            <img src="img/cloud.png" class="card-img-top" alt="..." />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">-2°C</li>
-              <li class="list-group-item">-4°C</li>
-            </ul>
-          </div>
-          <div class="card" style="width: 18rem">
-            <div class="card-body">
-              <p class="card-title">Wednesday</p>
-            </div>
-            <img src="img/snow2.png" class="card-img-top" alt="..." />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">-1°C</li>
-              <li class="list-group-item">-2°C</li>
-            </ul>
-          </div>
-          <div class="card" style="width: 18rem">
-            <div class="card-body">
-              <p class="card-title">Thursday</p>
-            </div>
-            <img src="img/snowrain.png" class="card-img-top" alt="..." />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">+1°C</li>
-              <li class="list-group-item">0°C</li>
-            </ul>
-          </div>
-          <div class="card" style="width: 18rem">
-            <div class="card-body">
-              <p class="card-title">Friday</p>
-            </div>
-            <img src="img/cloudsun.png" class="card-img-top" alt="..." />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">-1°C</li>
-              <li class="list-group-item">-4°C</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    --></div>
+
+      <div id="forecast"></div>
+    </div>
     <br />
     <h6>
       <a
